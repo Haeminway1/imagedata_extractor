@@ -1,0 +1,29 @@
+[
+  {
+    "filename": "image.jpg",
+    "data": {
+      "name": {
+        "original": "卢亚利",
+        "english": "Laura"
+      },
+      "title": "Director",
+      "company": {
+        "name": {
+          "original": "惠安县力拓工艺品有限公司",
+          "english": "HUIAN L&T POTTERY CO., LTD."
+        }
+      },
+      "address": {
+        "office": "Room 301,Building 18#,Guanri Road,Siming Software Park",
+        "factory": "Xi dong Park,Cheng Nan Center,Luoyang Town,Huian County, Quanzhou, Fujian, China"
+      },
+      "contact": {
+        "phone": "+86 592 5903311",
+        "fax": "+86 592 5903311",
+        "email": "info-5@ltxm.cn",
+        "website": "www.lntpottery.com"
+      },
+      "notes": "Queenie"
+    }
+  }
+]

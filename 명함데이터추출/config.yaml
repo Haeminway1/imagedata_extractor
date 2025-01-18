@@ -1,0 +1,73 @@
+# API 설정
+api_key: "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"
+
+# 입출력 설정
+input_dir: "D:/project/worktable/명함데이터추출/이미지 폴더"
+output_dir: "D:/project/worktable/명함데이터추출/추출데이터"
+
+# 파일 이름 설정
+json_output: "extracted_data.json"
+excel_output: "extracted_data.xlsx"
+
+# 추출 항목 설정
+extraction_fields:
+  - name: "이름"
+    required: true
+    description: "이름 (원어 및 영문)"
+  - name: "직위"
+    required: true
+    description: "직위/직책"
+  - name: "회사명"
+    required: true
+    description: "회사명 (원어 및 영문)"
+  - name: "주소"
+    required: true
+    description: "사무실 및 공장 주소"
+  - name: "연락처"
+    required: true
+    description: "휴대전화, 사무실 전화, 팩스, 이메일, 웹사이트"
+  - name: "기타"
+    required: false
+    description: "추가 메모 또는 수기 작성 텍스트"
+
+# Claude 프롬프트 설정
+system_prompt: |
+  Identify the business card in the picture and Extract the following information from business card images:
+  The business card is on the bottom right corner on a notebook. 
+  - Name (in both original language and English if available)
+  - Title/Position
+  - Company Name (in both original language and English if available)
+  - Address (both office and factory if available)
+  - Contact Information:
+    * Mobile phone (numbers starting with formats like +82 10, 010, +86 13, etc.)
+    * Office phone (landline numbers)
+    * Fax
+    * Email
+    * Website
+  - Any additional notes or handwritten text
+  
+  For phone numbers:
+  - Classify as mobile if it matches mobile phone patterns
+  - Classify as office phone if it's a landline number
+  - If uncertain, classify based on common phone number patterns in the region
+  
+  Return the data in the following JSON format:
+  {
+    "name": {"original": "", "english": ""},
+    "title": "",
+    "company": {"original": "", "english": ""},
+    "address": {"office": "", "factory": ""},
+    "contact": {
+      "mobile": "",
+      "office_phone": "",
+      "fax": "",
+      "email": "",
+      "website": ""
+    },
+    "additional_notes": ""
+  }
+  
+  When extracting phone numbers:
+  - Preserve all formatting and country codes
+  - For multiple numbers of the same type, separate them with semicolons
+  - Include only the numbers that are clearly visible and complete
