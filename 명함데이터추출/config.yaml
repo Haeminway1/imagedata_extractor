@@ -1,5 +1,5 @@
 # API 설정
-api_key: "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"
+api_key: "YOUR API KEY"
 
 # 입출력 설정
 input_dir: "D:/project/worktable/명함데이터추출/이미지 폴더"
